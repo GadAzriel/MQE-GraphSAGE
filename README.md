@@ -509,13 +509,8 @@ We welcome contributions! Here's how you can help:
 - Update README if adding new features
 
 ---
-
 ## License
-
-This project is licensed under the MIT License.
-
 Copyright (c) 2025 Gad Azriel, Lidor Kupershmid
-
 ---
 
 ## Acknowledgments
