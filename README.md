@@ -11,7 +11,7 @@
 
 **Multi-Hop Feature Quality Estimation with GraphSAGE for Robust Graph Learning**
 
-[Features](#-key-features) • [Quick Start](#-quick-start) • [Results](#-results) • [Installation](#-installation) • [Citation](#-citation)
+[Features](#-key-features) • [Quick Start](#-quick-start) • [Results](#-results) • [Impact Factor](#-real-world-application-journal-impact-factor-validation) • [Installation](#installation-steps) • [Citation](#related-work)
 
 </div>
 
@@ -41,7 +41,7 @@ This repository implements and compares **two robust graph representation learni
 - **Better Representations** - More distinct and separable learned embeddings
 - **Multiple Datasets** - Cora, CiteSeer, PubMed, Amazon (Computers/Photo)
 - **Easy to Use** - Simple command-line interface and Colab notebooks
-
+- **Real-World Validated** - Applied to journal impact factor semantic validation
 ---
 
 ## Results
@@ -87,6 +87,71 @@ This repository implements and compares **two robust graph representation learni
 </div>
 
 ---
+
+## Real-World Application: Journal Impact Factor Validation
+
+Beyond benchmark datasets, we applied MQE + GraphSAGE to validate the **semantic quality of citations** in academic journals. This addresses a critical limitation of traditional Impact Factor metrics, which treat all citations equally regardless of their topical relevance.
+
+### Methodology
+
+- **Data Source**: OpenAlex API (2010-2022, 15K+ papers analyzed)
+- **Journals Analyzed**: Scientometrics, Journal of Informetrics, PLOS ONE
+- **Graph Construction**: Citation networks with TF-IDF text features from titles and abstracts
+- **Quality Metric**: Cosine similarity threshold (τ) between citing and cited papers' learned embeddings
+- **Hardware**: Tesla T4 GPU
+
+### Key Findings
+
+We computed "Corrected Impact Factor" by filtering citations based on semantic similarity thresholds:
+
+#### **Scientometrics** (2012-2022)
+
+| Threshold (τ) | Avg Original IF | Avg Corrected IF | Avg Reduction |
+|--------------|-----------------|------------------|---------------|
+| **τ ≥ 0.25** | 0.655 | 0.648 | **1.1%** |
+| **τ ≥ 0.50** | 0.655 | 0.632 | **3.6%** |
+| **τ ≥ 0.75** | 0.655 | 0.549 | **16.5%** ⚠️ |
+
+**Insight**: Up to 16.5% of citations show weak semantic alignment at strict thresholds, suggesting room for improving citation quality.
+
+#### **Journal of Informetrics** (2012-2022)
+
+| Threshold (τ) | Avg Original IF | Avg Corrected IF | Avg Reduction |
+|--------------|-----------------|------------------|---------------|
+| **τ ≥ 0.25** | 0.623 | 0.622 | **0.2%** |
+| **τ ≥ 0.50** | 0.623 | 0.614 | **1.4%** |
+| **τ ≥ 0.75** | 0.623 | 0.578 | **7.2%** ✅ |
+
+**Insight**: Minimal reduction even at strict thresholds indicates **high-quality, semantically relevant citations** — a hallmark of genuine scholarly impact.
+
+#### **PLOS ONE** (2012-2022)
+
+| Threshold (τ) | Avg Original IF | Avg Corrected IF | Avg Reduction |
+|--------------|-----------------|------------------|---------------|
+| **τ ≥ 0.25** | 0.121 | 0.121 | **0.1%** |
+| **τ ≥ 0.50** | 0.121 | 0.121 | **0.2%** |
+| **τ ≥ 0.75** | 0.121 | 0.119 | **1.9%** ✅ |
+
+**Insight**: Multidisciplinary journals maintain citation relevance across diverse topics, reflecting contextually appropriate citations despite topic variety.
+
+### Practical Impact
+
+This application demonstrates how MQE + GraphSAGE can:
+
+- **Validate bibliometric indicators** beyond simple citation counts
+- **Detect potential metric gaming** or inflated impact factors through semantic analysis
+- **Provide fairer journal rankings** based on citation quality, not just quantity
+- **Guide editorial policies** to promote meaningful, relevant citations
+- **Support funding decisions** by identifying journals with genuine scholarly impact
+
+### Try It Yourself
+
+Explore the full Impact Factor analysis in our interactive notebook:
+
+[![Open Impact Factor Analysis](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1NDVQv4tE8U2GRDEhngwqUHu5LivSu4cg)
+
+---
+
 
 ## Method
 
@@ -446,6 +511,9 @@ We welcome contributions! Here's how you can help:
 ---
 
 ## License
+
+This project is licensed under the MIT License.
+
 Copyright (c) 2025 Gad Azriel, Lidor Kupershmid
 
 ---
@@ -454,6 +522,7 @@ Copyright (c) 2025 Gad Azriel, Lidor Kupershmid
 
 - **Supervisors**: Prof. Zeev Volkovich and Dr. Renata Avros for guidance and support
 - **PyTorch Geometric Team**: For the excellent graph learning library
+- **OpenAlex**: For providing open access to scholarly metadata
 - **Open Source Community**: For the tools and libraries that made this possible
 
 ---
@@ -465,14 +534,11 @@ Copyright (c) 2025 Gad Azriel, Lidor Kupershmid
 
 **Project Links**
 - [GitHub Repository](https://github.com/GadAzriel/MQE-GraphSAGE)
-- [Google Colab Notebook](https://colab.research.google.com/drive/1lByfdmdsMmvQ1V0GYx9wVNImKjZIxUkY)
-
+- [Main Colab Notebook](https://colab.research.google.com/drive/1lByfdmdsMmvQ1V0GYx9wVNImKjZIxUkY)
+- [Impact Factor Analysis Notebook](https://colab.research.google.com/drive/1NDVQv4tE8U2GRDEhngwqUHu5LivSu4cg)
 ---
 
 **Questions?** Open an issue or reach out via GitHub!
-
-**Star this repository if you find it helpful!**
-
 ---
 
 </div>
