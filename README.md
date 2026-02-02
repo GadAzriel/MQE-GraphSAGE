@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Project Logo](/MQE-GraphSAGE/assets/Project_Logo.png)
+![Project Logo](./assets/Project_Logo.png)
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.1+-ee4c2c.svg)](https://pytorch.org/)
