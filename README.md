@@ -50,7 +50,7 @@ This repository implements and compares **two robust graph representation learni
 
 <div align="center">
 
-![Accuracy Comparison](/MQE-GraphSAGE/assets/accuracy_comparison.png)
+![Accuracy Comparison](./assets/accuracy_comparison.png)
 
 **MQE + GraphSAGE achieves 81.1±0.7% accuracy, outperforming Original MQE by 4.8%**
 
@@ -60,7 +60,7 @@ This repository implements and compares **two robust graph representation learni
 
 <div align="center">
 
-![Runtime Comparison](/MQE-GraphSAGE/assets/runtime_comparison.png)
+![Runtime Comparison](./assets/runtime_comparison.png)
 
 **MQE + GraphSAGE trains 11% faster (1.43s vs 1.61s per epoch)**
 
@@ -70,7 +70,7 @@ This repository implements and compares **two robust graph representation learni
 
 <div align="center">
 
-![Training Curves](/MQE-GraphSAGE/assets/training_curves.png)
+![Training Curves](./assets/training_curves.png)
 
 **(a) Faster loss convergence • (b) Consistently higher validation accuracy throughout training**
 
@@ -80,7 +80,7 @@ This repository implements and compares **two robust graph representation learni
 
 <div align="center">
 
-![t-SNE Comparison](/MQE-GraphSAGE/assets/tsne_comparison.png)
+![t-SNE Comparison](./assets/tsne_comparison.png)
 
 **t-SNE visualization showing MQE + GraphSAGE learns more distinct and separable class clusters**
 
