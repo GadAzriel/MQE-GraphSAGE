@@ -510,7 +510,7 @@ We welcome contributions! Here's how you can help:
 
 ---
 ## License
-Copyright (c) 2025 Gad Azriel, Lidor Kupershmid
+- Copyright (c) 2025 Gad Azriel, Lidor Kupershmid
 ---
 
 ## Acknowledgments
